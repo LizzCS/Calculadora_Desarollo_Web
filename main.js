@@ -31,7 +31,7 @@ buttons.forEach((boton) => {
       return;
     }
 
-    if (pantalla.textContent === "0") {
+    if (pantalla.textContent === "0" || pantalla.textContent === "Error!") {
       pantalla.textContent = btnPressed;
     } else {
       pantalla.textContent += btnPressed;
