@@ -22,6 +22,15 @@ buttons.forEach((boton) => {
       return;
     }
 
+    if (boton.id === "result") {
+      try {
+        pantalla.textContent = parser(pantalla.textContent);
+      } catch {
+        pantalla.textContent = "Error!";
+      }
+      return;
+    }
+
     if (pantalla.textContent === "0") {
       pantalla.textContent = btnPressed;
     } else {
