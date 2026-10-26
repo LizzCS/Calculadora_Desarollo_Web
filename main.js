@@ -1,16 +1,16 @@
 const pantalla = document.querySelector(".screen");
-const botones = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll(".button");
 
-botones.forEach((boton) => {
+buttons.forEach((boton) => {
   boton.addEventListener("click", () => {
-    const botonApretado = boton.textContent;
+    const btnPressed = boton.textContent;
 
     if (boton.id === "c") {
       pantalla.textContent = "0";
       return;
     }
 
-    if (boton.id === "borrar") {
+    if (boton.id === "backspace") {
       if (
         pantalla.textContent.length === 1 ||
         pantalla.textContent === "Error!"
@@ -22,19 +22,29 @@ botones.forEach((boton) => {
       return;
     }
 
-    if (boton.id === "igual") {
+    if (boton.id === "result") {
       try {
-        pantalla.textContent = eval(pantalla.textContent);
+        pantalla.textContent = parser(pantalla.textContent);
       } catch {
         pantalla.textContent = "Error!";
       }
       return;
     }
 
+    // No permitir mas de un punto decimal en el mismo numero
+    if (btnPressed === ".") {
+      const partes = pantalla.textContent.split(/[+\-*/()]/);
+      const numeroActual = partes[partes.length - 1];
+
+      if (numeroActual.includes(".")) {
+        return;
+      }
+    }
+
     if (pantalla.textContent === "0" || pantalla.textContent === "Error!") {
-      pantalla.textContent = botonApretado;
+      pantalla.textContent = btnPressed;
     } else {
-      pantalla.textContent += botonApretado;
+      pantalla.textContent += btnPressed;
     }
   });
 });
