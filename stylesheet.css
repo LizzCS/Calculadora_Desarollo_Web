@@ -27,6 +27,7 @@ body {
   border-radius: 10px;
   border: solid 2px #011518;
   padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btnGrid {
@@ -50,4 +51,26 @@ body {
 .button:hover {
   background-color: #011518;
   color: #056270;
+}
+
+#c {
+  background-color: #661a1a;
+}
+
+#c:hover {
+  background-color: #821506;
+  color: #011518;
+}
+
+#result {
+  background-color: #09692f;
+}
+
+#result:hover {
+  background-color: #08a453;
+  color: #011518;
+}
+
+.operator {
+  background-color: #074955;
 }
